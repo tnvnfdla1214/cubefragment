@@ -28,7 +28,7 @@ import butterknife.OnClick;
  * @author kakajika
  * @since 2015/11/27
  */
-public class ExampleFragment extends Fragment {
+public class ExampleFragment extends Fragment{
 
     @IntDef({NONE, CUBE})
     public @interface AnimationStyle {}
@@ -147,4 +147,10 @@ public class ExampleFragment extends Fragment {
         }
     }
 
+    public void test(){
+        getArguments().putInt("direction", RIGHT);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.layout_main, ExampleFragment.newInstance(RIGHT));
+        ft.commit();
+    }
 }
